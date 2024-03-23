@@ -13,12 +13,14 @@
 (function() {
     'use strict';
     function d() {
-        var maxHit = parseInt(document.querySelector('#combat-enemy-strength-bonus').textContent.replace('(', '').replace(')', '').replace(',', ''));
-        var currentHealth = parseInt(document.querySelector('#combat-player-hitpoints-current').textContent.replace(',', ''));
-        var eatButton = document.querySelector('#combat-food-container > div > button.btn.btn-outline-secondary.text-combat-smoke.font-size-sm');
-        if(maxHit >= currentHealth) {
-            eatButton.click();
-        }
+        try {
+            var maxHit = parseInt(document.querySelector('#combat-enemy-strength-bonus').textContent.replace('(', '').replace(')', '').replace(',', ''));
+            var currentHealth = parseInt(document.querySelector('#combat-player-hitpoints-current').textContent.replace(',', ''));
+            var eatButton = document.querySelector('#combat-food-container > div > button.btn.btn-outline-secondary.text-combat-smoke.font-size-sm');
+            if(maxHit >= currentHealth) {
+                eatButton.click();
+            }
+        } catch (err) {}
     }
     var i57487682 = setInterval(d, 500);
 })();
